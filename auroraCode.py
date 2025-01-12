@@ -13,7 +13,7 @@ def calculate_v(base_code):
     v = (10 - (total % 10)) % 10
     return v
 
-def create_code(code):
+def create_code(code, text="AuroraCode\n$$barcode$$"):
     global last_code
     last_code = code
     digits = [int(d) for d in str(code)]
@@ -27,7 +27,7 @@ def create_code(code):
     result = EAN13(c_v, writer=ImageWriter())
     
     file_path = os.path.join(os.getcwd(), f"{code}_barcode_aurora.png")
-    result.save(file_path, text=f"AuroraCode\n{c_v}")
+    result.save(file_path, text=text.replace("$$barcode$$",c_v)))
 
     generated_codes[str(code)] = c_v
     return {"filename": f"{code}_barcode_aurora.png", "path": file_path, "code": str(code), "barcode": c_v}
