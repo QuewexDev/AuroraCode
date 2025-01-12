@@ -1,0 +1,2 @@
+# AuroraCode
+THIS TOOL WORKS ONLY IN UKRAINIAN SHOP "Aurora"
